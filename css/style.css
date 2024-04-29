@@ -1,0 +1,78 @@
+/* === */
+/* === */
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=PT+Sans+Caption:wght@400;700&family=Pacifico&family=Righteous&family=Saira+Condensed:wght@300;400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24,
+}
+
+body {
+  font-family: "PT Sans Caption", sans-serif;
+  background-color: black;
+  color: white;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+.logo {
+  width: 40px;
+}
+
+.main-loading-screen {
+  z-index: 5;
+  display: flex;
+}
+#sideBar {
+  z-index: 4;
+}
+
+.links li {
+  cursor: pointer;
+  
+}
+input {
+  font-size: 11px;
+}
+.data-loading-screen {
+  z-index: 3;
+  display: flex;
+  max-height: 106vh;
+  background: #000;
+}
+/* #searchContainer{
+    min-height: 10vh;
+    z-index: 1;
+} */
+#mealsContainer {
+    z-index: 1;
+    min-height: 100vh;
+}
+
+/*  category */
+
+.meal:hover .meal-layer{
+    top: 0;
+    background: #ffffff7a;
+    transition: 0.3s;
+    height: 100%;
+    cursor: pointer;
+}

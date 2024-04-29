@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/other/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Today’s Meal</title>
+  </head>
+
+  <body>
+    <div
+      class="main-loading-screen position-fixed top-0 start-0 end-0 bottom-0 bg-black justify-content-center align-items-center"
+    >
+      <i class="fa fa-spinner fa-spin fa-5x"></i>
+    </div>
+
+    <div class="min-vh-100 position-fixed d-flex top-0" id="sideBar">
+      <div
+        class="d-flex flex-column justify-content-between min-vh-100 p-4 bg-black text-white"
+        id="nav-tab"
+      >
+        <div class="links">
+          <ul class="overflow-hidden">
+            <li
+              onclick="closeSideBar() ,getCategories() "
+              class="py-2 position-relative"
+            >
+              Categories
+            </li>
+            <li
+              onclick="closeSideBar(),getArea()"
+              class="py-2 position-relative"
+            >
+              Area
+            </li>
+            <li
+              onclick="closeSideBar() ,getIngredients()"
+              class="py-2 position-relative"
+            >
+              Ingredients
+            </li>
+            <li onclick="closeSideBar(),showContacts() " class="py-2 position-relative">
+              Contact Us
+            </li>
+          </ul>
+        </div>
+        <div class="">
+          <h4 class="py-2 position-relative">Search</h4>
+          <div class="">
+            <input
+              onkeyup="searchByName(this.value)"
+              class="d-block bg-transparent text-white mb-3 px-4 py-2 rounded-3"
+              type="text"
+              placeholder="Search By Name"
+            />
+            <input
+              onkeyup="searchByLetter(this.value)"
+              maxlength="1"
+              class="d-block bg-transparent text-white px-4 py-2 rounded-3"
+              type="text"
+              placeholder="Search By First Letter"
+            />
+          </div>
+        </div>
+        <div class="nav-footer">
+          <div class="icons">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-solid fa-globe"></i>
+          </div>
+          <div class="footer">
+            <p>Copyright Â© 2019 All Rights <br />Reserved.</p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="nav-header d-flex flex-column justify-content-between py-4 text-center px-2 bg-white text-black border border-right-2"
+      >
+        <img class="logo" src="images/logo.png" alt="logo..." srcset="" />
+        <i class="bx bx-menu fs-1" id="open-close-icon"></i>
+        <div class="d-flex flex-column gap-3">
+          <i class="fa-solid fa-globe d-block"></i>
+          <i class="fa-solid fa-share-nodes"></i>
+        </div>
+      </div>
+    </div>
+    <div class="position-relative" id="searchContainer"></div>
+
+    <main class="min-vh-100 position-relative" id="mealsContainer">
+      <section
+        class="data-loading-screen position-absolute top-0 start-0 end-0 bottom-0 justify-content-center align-items-center"
+      >
+        <i class="fa fa-spinner fa-spin fa-5x"></i>
+      </section>
+      <section class="container">
+        <article class="row py-5 g-4" id="dataContainer"></article>
+      </section>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/other/all.min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
