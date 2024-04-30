@@ -48,6 +48,42 @@ let searchBars = document.getElementById("searchBars");
 let searchResults = document.getElementById("searchResults");
 let dataSearch = document.getElementById("dataSearch");
 
+
+// =======  get  Home Meals  ===========
+
+async function getHomeMeals() {
+  let urlApi = `https://www.themealdb.com/api/json/v1/1/search.php?s=`;
+
+  let res = await fetch(urlApi);
+
+  res = await res.json();
+
+  console.log(res.meals);
+  showHomeMeals(res.meals);
+}
+getHomeMeals();
+
+function showHomeMeals(data) {
+  // dataContainer.innerHTML = "";
+  $(".data-loading-screen").fadeIn(500);
+  let dataContent = "";
+  data.map((meals) => {
+    dataContent += `
+        <div class="col-md-3">
+                <div onclick="getMealDetails('${meals.idMeal}')" class="meal position-relative overflow-hidden rounded-2 cursor-pointer">
+                    <img class="w-100" src="${meals.strMealThumb}" alt="" srcset="">
+                    <div class="meal-layer position-absolute d-flex align-items-center text-black p-2 w-100">
+                        <h3>${meals.strMeal}</h3>
+                    </div>
+                </div>
+        </div>
+    `;
+  });
+  $(".data-loading-screen").fadeOut(500);
+
+  dataContainer.innerHTML = dataContent;
+}
+
 // ==========  Categories meals   =========== //
 
 async function getCategories() {
@@ -62,7 +98,7 @@ async function getCategories() {
 getCategories();
 
 function ShowCategories(data) {
-  dataContainer.innerHTML = "";
+  // dataContainer.innerHTML = "";
   $(".data-loading-screen").fadeIn(500);
   let dataContent = "";
   data.map((category) => {
@@ -103,7 +139,7 @@ async function getArea() {
 }
 
 function ShowArea(data) {
-  dataContainer.innerHTML = "";
+  // dataContainer.innerHTML = "";
   $(".data-loading-screen").fadeIn(500);
 
   let dataContent = "";
@@ -161,8 +197,6 @@ function showIngredients(data) {
 // ==========  get Meals   =========== //
 
 function showMeals(data) {
-  dataContainer.innerHTML = "";
-  $(".data-loading-screen").fadeIn(500);
 
   let dataContent = "";
   data.map((meals) => {
@@ -178,7 +212,6 @@ function showMeals(data) {
 
     `;
   });
-  $(".data-loading-screen").fadeOut(500);
   dataContainer.innerHTML = dataContent;
 }
 
